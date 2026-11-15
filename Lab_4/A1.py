@@ -14,17 +14,20 @@ for i in range(N):
     b = random.randint(2, 9)
     start_time = time.time()
     res = a * b
-    try:
-        user_res = int(input(f"{a} * {b} = "))
-        time_spend = time.time() - start_time
-        all_time += time_spend
-        if user_res == res:
-            print(f"верно! (Время: {time_spend:.2f})")
-            correct += 1
-        else:
-            print(f"неверно! Правильно: {res} (Время: {time_spend:.2f})")
-    except ValueError:
-        print("Пожалуйста, введите целое число!")
+    while True:
+        try:
+            user_res = int(input(f"{a} * {b} = "))
+            time_spend = time.time() - start_time
+            all_time += time_spend
+            if user_res == res:
+                print(f"верно! (Время: {time_spend:.2f})")
+                correct += 1
+                break
+            else:
+                print(f"неверно! Правильно: {res} (Время: {time_spend:.2f})")
+                break
+        except ValueError:
+            print("Пожалуйста, введите целое число!")
 
 
 average_time = all_time / N
